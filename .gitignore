@@ -61,3 +61,5 @@
 /drupal.phar
 /drupal
 .idea/
+
+node_modules/
