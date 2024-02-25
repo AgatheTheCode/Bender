@@ -15,3 +15,5 @@ globalStyling:
       assets/styles/style.css: { }
   js:
     assets/scripts/main.js: {}
+
+

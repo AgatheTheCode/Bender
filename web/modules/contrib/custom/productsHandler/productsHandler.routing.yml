@@ -1,0 +1,7 @@
+productsHandler.products:
+  path: '/products/{product_type}'
+  defaults:
+    _controller: '\Drupal\productsHandler\Controller\ProductsController::content'
+    _title: 'Products'
+  requirements:
+    _permission: 'access content'

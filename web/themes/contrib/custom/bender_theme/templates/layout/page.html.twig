@@ -43,11 +43,16 @@
  * @see html.html.twig
  */
 #}
+
+{# Output the template suggestions for the current node. #}
+{# This can help identify the correct template suggestions for your node type. #}
+{# Make sure you replace 'product' with your actual content type machine name. #}
+{{ content|without('content') }}
+
+
 <div class="layout-container">
 
-  <header role="banner">
-    {{ page.header }}
-  </header>
+  {{ include('@bendertheme/partials/header.html.twig') }}
 
   {{ page.primary_menu }}
   {{ page.secondary_menu }}
@@ -64,25 +69,27 @@
     <div class="layout-content">
       {{ page.content }}
     </div>{# /.layout-content #}
+    {{ product | json_encode | raw }}
+
+    {% if product.getType == 'guitar' %}
+      <p>true</p>
+      {{ include('@bendertheme/partials/productblock.html.twig', { 'product': product }) }}
+    {% else %}
+      <p>false</p>
+    {% endif %}
 
     {% if page.sidebar_first %}
-    <aside class="layout-sidebar-first" role="complementary">
-      {{ page.sidebar_first }}
-    </aside>
+      <aside class="layout-sidebar-first" role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
     {% endif %}
 
     {% if page.sidebar_second %}
-    <aside class="layout-sidebar-second" role="complementary">
-      {{ page.sidebar_second }}
-    </aside>
+      <aside class="layout-sidebar-second" role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
     {% endif %}
 
   </main>
-
-  {% if page.footer %}
-  <footer role="contentinfo">
-    {{ page.footer }}
-  </footer>
-  {% endif %}
-
+  {{ include('@bendertheme/partials/footer.html.twig') }}
 </div>{# /.layout-container #}

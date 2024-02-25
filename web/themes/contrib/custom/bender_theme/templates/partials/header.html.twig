@@ -1,0 +1,17 @@
+<header role="banner">
+  {{ site_logo }}
+  {{ site_title }}
+  {{ site_description }}
+
+  <nav>
+    <ul>
+      {#  {%for item_key, item_data in main_menu['#items'] %}
+        <li>
+          <p>{{ item_data }}</p>
+          <a href="{{ item_data['url']['#url'] }}">{{ item_data['url']['#title'] }}</a>
+        </li>
+      {% endfor %} #}
+    </ul>
+  </nav>
+
+</header>

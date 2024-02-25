@@ -1,0 +1,12 @@
+name: 'Products Handler'
+type: module
+description: "Change de manière dynamique le contenu de la page Products en fonction de l'url."
+package: Custom
+
+dependencies:
+  - block
+
+version: 1.0
+core_version_requirement: ^10
+project: 'drupal/productsHandler'
+datestamp: 1612345678
