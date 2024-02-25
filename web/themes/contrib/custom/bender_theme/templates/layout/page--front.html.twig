@@ -45,7 +45,11 @@
  * @ingroup themeable
  */
 #}
-<div class="container p-4 mx-auto">
+
+
+
+
+<div class="container">
 
   <header role="banner">
     {{ page.header }}
@@ -62,19 +66,20 @@
 
   <main role="main">
     <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
-    <div class="-mx-4 md:flex">
-      <div class="p-4 md:flex-1">
+
+    <div class="">
+      <div class="">
         {{ page.content }}
       </div>{# /.layout-content #}
 
       {% if page.sidebar_first %}
-        <aside class="p-4 md:w-1/4" role="complementary">
+        <aside class="" role="complementary">
           {{ page.sidebar_first }}
         </aside>
       {% endif %}
 
       {% if page.sidebar_second %}
-        <aside class="md:w-1/4" role="complementary">
+        <aside class="" role="complementary">
           {{ page.sidebar_second }}
         </aside>
       {% endif %}
