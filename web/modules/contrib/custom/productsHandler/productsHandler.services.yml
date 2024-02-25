@@ -1,0 +1,9 @@
+services:
+  productsHandler.controller.products:
+    class: '\Drupal\productsHandler\Controller\ProductsController'
+    autowire: true
+    autoconfigure: true
+    public: false
+    arguments:
+      - 'guitare-electrique'
+      - '@productsHandler.service.productContent'
