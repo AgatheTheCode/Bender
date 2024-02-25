@@ -62,4 +62,12 @@
 /drupal
 .idea/
 
+#ignore all DS_Store
+.DS_Store
+
 node_modules/
+
+web/themes/contrib/stable/
+
+web/themes/contrib/tailwindcss/
+

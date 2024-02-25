@@ -20,10 +20,7 @@
         "drupal/core-composer-scaffold": "^10.2",
         "drupal/core-project-message": "^10.2",
         "drupal/core-recommended": "^10.2",
-        "drupal/gin": "^3.0@RC",
-        "drupal/gin_toolbar": "^1.0@RC",
         "drupal/pathauto": "^1.12",
-        "drupal/showcase_lite": "^1.5",
         "drupal/stable": "^2.0",
         "drupal/tailwindcss": "^5.0@alpha",
         "drush/drush": "^12.4"
