@@ -47,13 +47,8 @@
 #}
 
 
-
-
 <div class="container">
-
-  <header role="banner">
-    {{ page.header }}
-  </header>
+  {{ include('@bendertheme/partials/header.html.twig') }}
 
   {{ page.primary_menu }}
   {{ page.secondary_menu }}
@@ -86,10 +81,6 @@
     </div>
   </main>
 
-  {% if page.footer %}
-    <footer role="contentinfo">
-      {{ page.footer }}
-    </footer>
-  {% endif %}
+  {{ include('@bendertheme/partials/footer.html.twig') }}
 
 </div>{# /.layout-container #}
