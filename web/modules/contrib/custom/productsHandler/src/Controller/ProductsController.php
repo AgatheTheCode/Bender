@@ -5,7 +5,6 @@ namespace Drupal\productsHandler\Controller;
 use AllowDynamicProperties;
 use Drupal;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\DependencyInjection\AutowireTrait;
 use Drupal\productsHandler\Service\ProductContentService;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Psr\Log\LoggerInterface;
@@ -38,13 +37,13 @@ use Psr\Log\LoggerInterface;
    * @param \Symfony\Component\DependencyInjection\ContainerInterface $container
    *   The container.
    *
-   * @return \Drupal\productsHandler\Controller\ProductsController|\Drupal\Core\DependencyInjection\AutowireTrait The
-   *   controller. The controller.
+   * @return static
+   *   The controller instance.
    */
-  public static function create(ContainerInterface $container): ProductsController|AutowireTrait|static {
+  public static function create(ContainerInterface $container): static {
     return new static(
       $container->get('current_route_match')->getParameter('product_type'),
-      $container->get('productsHandler.service.productContent')
+      $container->get('productsHandler.service.productContentService')
     );
   }
 
