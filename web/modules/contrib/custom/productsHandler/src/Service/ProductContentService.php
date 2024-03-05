@@ -35,7 +35,7 @@ class ProductContentService {
     try {
       $node = $this->entityTypeManager
         ->getStorage('node')
-        ->loadByProperties(['type' => 'guitare-electrique', 'title' => $product_type]);
+        ->loadByProperties(['type' => 'guitares-electriques', 'title' => $product_type]);
 
       if ($node) {
         // Build a render array for the node.
