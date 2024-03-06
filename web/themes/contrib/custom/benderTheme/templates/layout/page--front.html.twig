@@ -48,7 +48,7 @@
 
 
 <div class="container">
-  {{ include('@benderTheme/partials/header.html.twig') }}
+  {{ include('@bendertheme/partials/header.html.twig') }}
 
   {{ page.primary_menu }}
   {{ page.secondary_menu }}
@@ -81,8 +81,12 @@
         </aside>
       {% endif %}
     </div>
+    <footer role="contentinfo">
+      {{ page.footer }}
+      {{ include('@bendertheme/partials/footer.html.twig') }}
+    </footer>
   </main>
 
-  {# include('@benderTheme/partials/footer.html.twig') #}
+  {# include('@bendertheme/partials/footer.html.twig') #}
 
 </div>{# /.layout-container #}

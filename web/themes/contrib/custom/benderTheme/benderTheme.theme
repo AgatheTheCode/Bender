@@ -9,17 +9,17 @@ use Drupal\Component\DependencyInjection\ContainerInterface;
 /**
  * Implements hook_page_attachments_alter().
  */
-function benderTheme_page_attachments(&$attachments): void {
+function bendertheme_page_attachments(&$attachments): void {
   $is_front_page = Drupal::service('path.matcher')->isFrontPage();
   if ($is_front_page) {
-    $attachments['#attached']['library'][] = 'benderTheme/global-styling';
+    $attachments['#attached']['library'][] = 'bendertheme/global-styling';
   }
 }
 
 /**
  * Implements hook_preprocess_page().
  */
-function benderTheme_preprocess_page(&$variables): void {
+function bendertheme_preprocess_page(&$variables): void {
   // Load and render the main menu
   $menu_name = 'main-menu';
   $menu_tree = Drupal::menuTree();
@@ -35,7 +35,7 @@ function benderTheme_preprocess_page(&$variables): void {
  * Implements hook_preprocess_HOOK() for block templates.
  */
 
-function benderTheme_preprocess_block(&$variables, $hook): void {
+function bendertheme_preprocess_block(&$variables, $hook): void {
   // Add custom variables for the header.
 //$container = Drupal::getContainer();
   $variables['site_logo'] = theme_get_setting('logo.url');

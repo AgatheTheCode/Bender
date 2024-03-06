@@ -1,10 +1,10 @@
-name: 'benderTheme'
+name: 'bendertheme'
 type: theme
 description: 'A custom Drupal theme.'
 core_version_requirement: ^9 || ^10
 base theme: tailwindcss
 libraries:
-  - benderTheme/globalStyling
+  - bendertheme/global-styling
 regions:
   header: 'Header'
   primary_menu: 'Primary menu'
