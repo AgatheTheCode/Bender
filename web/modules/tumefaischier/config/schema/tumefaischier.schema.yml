@@ -1,0 +1,7 @@
+block.settings.tumefaischier_footer_password:
+  type: block_settings
+  label: 'Footer Password block'
+  mapping:
+    example:
+      type: string
+      label: Example
