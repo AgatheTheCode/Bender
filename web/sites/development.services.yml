@@ -4,17 +4,6 @@
 # 'example.settings.local.php' file, which sits next to this file.
 parameters:
   http.response.debug_cacheability_headers: true
-  parameters:
-    twig.config:
-      debug: true
-      auto_reload: true
-      cache: false
 services:
   cache.backend.null:
     class: Drupal\Core\Cache\NullBackendFactory
-    cache.backend.memory:
-      class: Drupal\Core\Cache\MemoryBackendFactory
-      cache_tags.invalidator.checksum:
-        class: Drupal\Core\Cache\CacheTagsChecksum
-        arguments: ['@cache_tags.invalidator.checksum', '@cache_tags.invalidator.checksum']
-
