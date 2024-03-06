@@ -53,7 +53,7 @@
 
 <div class="layout-container">
 
-  {{ include('@benderTheme/partials/header.html.twig') }}
+  {{ include('@bendertheme/partials/header.html.twig') }}
 
   {{ page.primary_menu }}
   {{ page.secondary_menu }}
@@ -72,7 +72,7 @@
     </div>{# /.layout-content #}
 
 
-    {{ include('@benderTheme/partials/node--products--full.html.twig', { 'product': product }) }}
+    {{ include('@bendertheme/partials/node--products--full.html.twig', { 'product': product }) }}
 
     {% if page.sidebar_first %}
       <aside class="layout-sidebar-first" role="complementary">
@@ -87,7 +87,7 @@
     {% endif %}
       <footer role="contentinfo">
         {{ page.footer }}
-        {{ include('@benderTheme/partials/footer.html.twig') }}
+        {{ include('@bendertheme/partials/footer.html.twig') }}
       </footer>
   </main>
 
