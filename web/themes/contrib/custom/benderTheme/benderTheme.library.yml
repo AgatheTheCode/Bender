@@ -1,0 +1,9 @@
+globalStyling:
+  version: 1.0
+  css:
+    base:
+      assets/build/styles/style.css: { }
+  js:
+    assets/scripts/main.js: {}
+
+

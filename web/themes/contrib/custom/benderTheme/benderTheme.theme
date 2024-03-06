@@ -1,0 +1,78 @@
+<?php
+
+declare(strict_types=1);
+/**
+ * @file
+ */
+use Drupal\Component\DependencyInjection\ContainerInterface;
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function benderTheme_page_attachments(&$attachments): void {
+  $is_front_page = Drupal::service('path.matcher')->isFrontPage();
+  if ($is_front_page) {
+    $attachments['#attached']['library'][] = 'benderTheme/global-styling';
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function benderTheme_preprocess_page(&$variables): void {
+  // Load and render the main menu
+  $menu_name = 'main-menu';
+  $menu_tree = Drupal::menuTree();
+  $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_name);
+  $tree = $menu_tree->load($menu_name, $parameters);
+  $menu_data = $menu_tree->build($tree);
+
+  // Pass the menu data to the Twig template
+  $variables['main_menu'] = $menu_data;
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for block templates.
+ */
+
+function benderTheme_preprocess_block(&$variables, $hook): void {
+  // Add custom variables for the header.
+//$container = Drupal::getContainer();
+  $variables['site_logo'] = theme_get_setting('logo.url');
+  $variables['site_title'] = Drupal::config('system.site')->get('name');
+  $variables['site_description'] = Drupal::config('system.site')
+    ->get('slogan');
+  //$variables['site_navigation'] = menu_tree_output(menu_tree_all_data('main-menu'));
+
+  // Check if we are on a node page.
+ /* $current_route_match = $container->get('current_route_match');
+  if ($container->get('current_route_match')
+      ->getRouteName() == 'entity.node.canonical') {
+    $node = $container->get('current_route_match')->getParameter('node');
+    if ($node && $node->getType() == 'products') {
+      $variables['product'] = $node;
+    }
+  }*/
+}
+
+function menu_tree_all_data(string $menu_name): array {
+  $menu_tree = Drupal::menuTree();
+  $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_name);
+  $tree = $menu_tree->load($menu_name, $parameters);
+  return $menu_tree->build($tree);
+}
+
+/*function menu_tree_output($menu_tree_all_data): array {
+  $menu_tree_output = [];
+
+  foreach ($menu_tree_all_data as $data) {
+    $menu_tree_output[] = [
+      '#theme' => 'menu_link',
+      '#title' => $data['link']['title'],
+      '#url' => $data['link']['url']->toString(),
+      // Use toString to get the path
+    ];
+  }
+
+  return $menu_tree_output;
+}*/
